@@ -1,0 +1,27 @@
+meta {
+  name: moviesUpdate
+  type: http
+  seq: 6
+}
+
+patch {
+  url: http://localhost:8000/api/movies/16
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: 5|b1TTH7E8Df0MWK9yGbywQ07mHE14oFvXmpIPPIVW6b998522
+}
+
+body:json {
+  {
+      "name": "tesztCsere"
+  
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

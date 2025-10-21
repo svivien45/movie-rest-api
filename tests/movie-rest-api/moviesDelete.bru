@@ -1,0 +1,20 @@
+meta {
+  name: moviesDelete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:8000/api/movies/15
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: 5|b1TTH7E8Df0MWK9yGbywQ07mHE14oFvXmpIPPIVW6b998522
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

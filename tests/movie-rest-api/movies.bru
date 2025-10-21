@@ -1,0 +1,20 @@
+meta {
+  name: movies
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8000/api/movies
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: 4|eCqWbdXoUD6vzLCRcuKd8QIpMGebVLrhAX0VZFY09d2f3244
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
