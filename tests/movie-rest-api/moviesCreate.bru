@@ -5,11 +5,28 @@ meta {
 }
 
 post {
-  url: 
-  body: none
-  auth: inherit
+  url: http://localhost:8000/api/movies
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: 4|eCqWbdXoUD6vzLCRcuKd8QIpMGebVLrhAX0VZFY09d2f3244
+}
+
+body:json {
+  {
+      "name": "teszt",
+      "description": "teszt",
+      "pic_path": "teszt",
+      "length": "teszt",
+      "release_date": "teszt",
+      "categories_id": 1,
+      "director_id": 1
+  }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

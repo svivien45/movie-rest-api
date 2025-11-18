@@ -8,6 +8,7 @@ use App\Http\Controllers\ActorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DirectorController;
 use App\Http\Controllers\StudioController;
+use App\Http\Controllers\ConnectMoviesActorsController;
 
 //Movie
 Route::get('/movies', [MovieController::class, 'index']);
@@ -15,6 +16,9 @@ Route::post('/movies', [MovieController::class, 'store'])->middleware('auth:sanc
 Route::post('/users/login', [UserController::class, 'login']);
 Route::patch('/movies/{id}', [MovieController::class,'update'])->middleware('auth:sanctum');
 Route::delete('/movies/{id}', [MovieController::class,'destroy'])->middleware('auth:sanctum');
+Route::post('/movies/{movie}/actors', [MovieController::class, 'addActor'])->middleware('auth:sanctum');
+Route::get('/movies/{movie}/studios', [MovieController::class, 'indexStudio']);
+
 
 //Actor
 Route::get('/actors', [ActorController::class, 'index']);
@@ -43,5 +47,8 @@ Route::post('/studios', [StudioController::class, 'store'])->middleware('auth:sa
 Route::post('/users/login', [UserController::class, 'login']);
 Route::patch('/studios/{id}', [StudioController::class,'update'])->middleware('auth:sanctum');
 Route::delete('/studios/{id}', [StudioController::class,'destroy'])->middleware('auth:sanctum');
+Route::get('/studios/{studio}/movies', [StudioController::class, 'index']);
+
+Route::get('/movies/{movie}/actors', [ConnectMoviesActorsController::class, 'index']);
 
 Route::get('/users', [UserController::class, 'index'])->middleware('auth:sanctum');

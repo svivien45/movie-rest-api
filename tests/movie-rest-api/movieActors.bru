@@ -1,0 +1,16 @@
+meta {
+  name: movieActors
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:8000/api/movies/1/actors
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
