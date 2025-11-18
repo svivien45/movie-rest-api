@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('release_date');
             $table->unsignedBigInteger('director_id');
             $table->foreign('director_id')->references('id')->on('directors');
+            $table->unsignedBigInteger('studio_id');
+            $table->foreign('studio_id')->references('id')->on('studios');
         });
     }
 

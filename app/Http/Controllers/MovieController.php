@@ -14,11 +14,18 @@ class MovieController extends Controller
      * @apiGroup Movie
      * @apiSuccess {Object[]} movies List of movies.
      */
-    public function index()
+    public function index(Request $request)
     {
+
         $movies = Movie::all();
         return response()->json(['movies' => $movies]);
     }
+
+    public function indexStudio(Movie $movie)
+    {
+        return response()->json($movie->studio);
+    }
+
 
     /**
      * @api {post} /movies Create a new movie
@@ -33,9 +40,9 @@ class MovieController extends Controller
      * @apiBody {String} release_date Release date of the movie.
      * 
      * @apiSuccess {Object} movie Created movie object.
-     */
+     */ 
     public function store(Request $request){
-        $movie = Movie::create($request->all());
+        $movie = Movie::create(  $request->all());
         return response()->json(['movie' => $movie]);
     }
 
@@ -80,4 +87,20 @@ class MovieController extends Controller
             'id' => $id
         ]);
     }
+
+    public function addActor(Request $request, Movie $movie)
+    {
+        $request->validate([
+            'actor_id' => 'required|exists:actors,id'
+        ]);
+
+        // Pivot táblába mentés
+        $movie->actors()->attach($request->actor_id);
+
+        return response()->json([
+            'message' => 'Actor added to movie successfully.',
+            'movie' => $movie->load('actors')
+        ]);
+    }
+
 }

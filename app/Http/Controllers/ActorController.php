@@ -15,8 +15,9 @@ class ActorController extends Controller
      * 
      * @apiSuccess {Object[]} actors List of all actors.
      */
-    public function index(){
-        $actors = Actor::all();
+    public function index(Request $request){
+        $movie_id = $request->get("movie");
+        $actors = Actor::where("movie_id", "=", $movie_id)->orderBy("name")->get();
         return response()->json(['actors' => $actors]); 
     }
 

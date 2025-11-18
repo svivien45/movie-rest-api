@@ -28,10 +28,9 @@ class DatabaseSeeder extends Seeder
             ActorSeeder::class,
             CategorySeeder::class,
             DirectorSeeder::class,
-            MovieSeeder::class,
             StudioSeeder::class,
+            MovieSeeder::class,
             Connect_Movies_ActorsSeeder::class,
-            Connect_Movies_StudiosSeeder::class,
         ]);
     }
 }

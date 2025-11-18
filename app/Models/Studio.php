@@ -9,9 +9,14 @@ class Studio extends Model
 {
     use HasFactory;
 
+
     public $timestamps = false;
 
     protected $fillable = [
         'name'
     ];
+
+    public function movies(){
+        return $this->hasMany(Movie::class);
+    }
 }

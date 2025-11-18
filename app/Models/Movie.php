@@ -18,6 +18,16 @@ class Movie extends Model
         'pic_path',
         'length',
         'release_date',
-        'director_id'
+        'director_id',
+        'studio_id'
     ];
+
+     public function actors()
+    {
+        return $this->belongsToMany(Actor::class, 'movies_actors');
+    }
+
+    public function studio(){
+        return $this->belongsTo(Studio::class);
+    }
 }

@@ -24,7 +24,7 @@ class DirectorController extends Controller
      * @api {post} /directors Create a new director
      * @apiName CreateDirector
      * @apiGroup Director
-     * 
+     *     
      * @apiBody {String} name Name of the director.
      * @apiBody {String} [birth_date] Birth date (optional).
      * @apiBody {String} [bio] Short biography (optional).

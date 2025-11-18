@@ -47,7 +47,7 @@ class MovieSeeder extends Seeder
         $rowsBatch = [];
 
         // Use the generated column array placeholder.
-        $columns = ['name', 'categories_id', 'description', 'pic_path', 'length', 'release_date', 'director_id'];
+        $columns = ['name', 'categories_id', 'description', 'pic_path', 'length', 'release_date', 'director_id', 'studio_id'];
 
         $output = $this->command->getOutput();
         $progressBar = $output->createProgressBar(count($lines));
