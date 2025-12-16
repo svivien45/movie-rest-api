@@ -15,11 +15,19 @@ class ActorController extends Controller
      * 
      * @apiSuccess {Object[]} actors List of all actors.
      */
+    /*
     public function index(Request $request){
         $movie_id = $request->get("movie");
         $actors = Actor::where("movie_id", "=", $movie_id)->orderBy("name")->get();
         return response()->json(['actors' => $actors]); 
     }
+        */
+    public function index(Request $request)
+    {
+        $actors = Actor::orderBy("name")->get();
+        return response()->json(['actors' => $actors]);
+    }
+
 
     /**
      * @api {post} /actors Create a new actor
